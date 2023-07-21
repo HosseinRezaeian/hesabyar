@@ -1,2 +1,2 @@
 # hesabyar
-This is software Personal accounting.
+This is software Personal accounting
