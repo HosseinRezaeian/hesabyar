@@ -33,3 +33,16 @@ class Bank_Account(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s Bank Account - {self.accountNumber}"
+
+
+class Accounting_Document(models.Model):
+    account = models.ForeignKey(Bank_Account, on_delete=models.CASCADE)
+    amount = models.IntegerField()
+    type_chose = [
+        ("debit", "debit"),
+        ("credit", "credit"),
+    ]
+    type=models.CharField(choices=type_chose,max_length=20,blank=True,null=True)
+
+    def __str__(self):
+        return f"{self.account}"

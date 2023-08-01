@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+{% for i in acc %}
+<h2>{{ i.user }}</h2>
+
+{% endfor %}
+{% endblock %}
