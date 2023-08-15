@@ -1,6 +1,5 @@
-
-{% load render_partial %}
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,7 @@
   .navbar-custom {
     background-color: #007bff; /* Change the background color */
   }
-
+  
   .navbar-custom .navbar-nav .nav-link {
     color: #fff; /* Change the link text color */
   }
@@ -30,12 +29,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-custom fixed-top">
-              {% if user.is_authenticated %}
-                    {{ user.username }}
-                {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-
-                {% endif %}
+    <a class="navbar-brand" href="#">Your Logo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">
         <i class="fas fa-bars"></i> <!-- Font Awesome 3-line icon -->
@@ -55,14 +49,20 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Portfolio</a>
         </li>
-
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                 </li>
-                {% endif %}
-
-
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
       </ul>
     </div>
   </nav>
+  
+  <div class="container mt-4">
+    <h2>Welcome to Our Website!</h2>
+    <p>This is a customized responsive menu example using Bootstrap and Font Awesome.</p>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
