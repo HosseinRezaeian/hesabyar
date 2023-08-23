@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'container_login.css' %}">
+<div class="container">
 
-{% block content %}
-    <h2>Login</h2>
     <form method="post" action="{% url 'login' %}">
+        <h2>Login</h2>
         {% csrf_token %}
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
@@ -11,4 +12,4 @@
         <input type="password" id="password" name="password" required><br><br>
         <button type="submit">Login</button>
     </form>
-{% endblock %}
+</div>

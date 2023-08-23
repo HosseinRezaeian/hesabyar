@@ -1,9 +1,10 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-{% for i in acc %}
-<h2>{{ i.user }}</h2>
-
-{% endfor %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% for i in acc %}
+        <div class="list_acc"><span>{{ i.name }}</span> |<span>{{ i.accountNumber }}</span>|<span>{{ i.cash }}</span>
+        </div>
+    {% endfor %}
 {% endblock %}

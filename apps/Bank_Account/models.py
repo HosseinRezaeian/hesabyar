@@ -42,7 +42,7 @@ class Accounting_Document(models.Model):
         ("debit", "debit"),
         ("credit", "credit"),
     ]
-    type=models.CharField(choices=type_chose,max_length=20,blank=True,null=True)
+    type = models.CharField(choices=type_chose, max_length=20, blank=True, null=True)
 
     def __str__(self):
         return f"{self.account}"

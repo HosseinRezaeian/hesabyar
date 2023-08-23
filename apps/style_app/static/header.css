@@ -1,0 +1,29 @@
+/* Custom colors for the navigation bar */
+.navbar-custom {
+    background-color: #007bff; /* Change the background color */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #fff; /* Change the link text color */
+}
+
+/* Custom color for the logo text */
+.navbar-custom .navbar-brand {
+    color: #ff0000; /* Change the logo text color */
+}
+
+/* Color for the Font Awesome icon */
+.navbar-custom .fas.fa-bars {
+    color: #fff; /* Change the icon color */
+}
+
+#username {
+    border: white 1px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}

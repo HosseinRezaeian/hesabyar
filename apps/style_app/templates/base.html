@@ -1,6 +1,8 @@
 {% load render_partial %}
+{% load static %}
 {% render_partial 'apps.style_app.views.header' %}
 <body>
+<link rel="stylesheet" href="{% static 'contain.css' %}">
 <div class="container mt-4">
     {% block content %}
     {% endblock %}

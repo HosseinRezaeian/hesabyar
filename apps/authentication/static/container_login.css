@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+.container {
+    /*margin-top: 105px;*/
+width: 100vw; /* 100% of the viewport width */
+  height: 100vh;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+form {
+    border: aliceblue solid;
+    background-color: aliceblue;
+    border-radius: 50px;
+    padding: 5%;
+}
+
+form button{
+
+  /* Basic styling */
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  /* Hover effect */
+  &:hover {
+    background-color: #2980b9;
+  }
+
+  /* Focus effect (for accessibility) */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 1);
+  }
+
+  /* Active effect */
+  &:active {
+    background-color: #1f73b7;
+  }
+}
+h2{
+    margin-bottom: 20px;
+}
+
+
+form input{
+
+  /* Basic styling */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  width: 300px;
+
+  /* Placeholder style */
+  ::placeholder {
+    color: #aaa;
+  }
+
+  /* Focus effect */
+  &:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+}
