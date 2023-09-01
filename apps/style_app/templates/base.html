@@ -3,12 +3,12 @@
 {% render_partial 'apps.style_app.views.header' %}
 <body>
 <link rel="stylesheet" href="{% static 'contain.css' %}">
-<div class="container mt-4">
+<div class="container">
     {% block content %}
     {% endblock %}
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'code.jquery.com_jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'cdn.jsdelivr.net_npm_@popperjs_core@2.9.1_dist_umd_popper.min.js' %}"></script>
+<script src="{% static 'maxcdn.bootstrapcdn.com_bootstrap_4.5.2_js_bootstrap.min.js' %}"></script>
 </body>
 </html>

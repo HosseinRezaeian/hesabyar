@@ -2,40 +2,42 @@
 {% load render_partial %}
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customized Responsive Menu</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<link rel="stylesheet" href="{% static 'header.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Responsive Menu</title>
+    <script src="{% static 'code.jquery.com_jquery-3.6.0.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'maxcdn.bootstrapcdn.com_bootstrap_4.5.2_css_bootstrap.min.css' %}">
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">#}
+    <link rel="stylesheet" href="{% static 'header.css' %}">
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-custom fixed-top">
-              {% if user.is_authenticated %}
-                   <div id="username">{{ user.username }}</div>
-                {% endif %}
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md navbar-custom fixed-top">
+    {% if user.is_authenticated %}
+        <div id="username">{{ user.username }}</div>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">
         <i class="fas fa-bars"></i> <!-- Font Awesome 3-line icon -->
       </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-      {% for nav in navBar %}
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url  nav.link  %}">{{ nav.name }} <span class="sr-only">(current)</span></a>
-        </li>
-      {% endfor %}
+        <ul class="navbar-nav ml-auto">
+            {% for nav in navBar %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url  nav.link %}">{{ nav.name }} <span class="sr-only">(current)</span></a>
+                </li>
+            {% endfor %}
 
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                {% else %}
+                    {% else %}
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
-                 </li>
-                {% endif %}
+                </li>
+            {% endif %}
 
 
-      </ul>
+        </ul>
     </div>
-  </nav>
+</nav>

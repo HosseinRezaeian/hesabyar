@@ -1,4 +1,78 @@
-.list_acc{
-    color: red;
+.list_acc {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: #007bff 2px solid;
+    border-radius: 5px;
+    margin-bottom: 5px;
 
+}
+
+.add_list {
+    background-color: #007bff;
+    color: white;
+    justify-content: center;
+}
+.spname{
+    width: 20%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+
+.spcash{
+    width: 20%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.spaccnum{
+    width: 55%;
+    text-align: center;
+}
+
+#accname{
+    width: 20%;
+    border: none;
+    outline:none;
+    border-bottom: #007bff 3px solid;
+    margin-left: 1%;
+    text-align: center;
+}
+#accnum{
+    width: 55%;
+        border: none;
+    outline:none;
+    border-bottom: #007bff 3px solid;
+    text-align: center;
+
+
+}
+#acccash{
+    width: 20%;
+        border: none;
+    outline:none;
+    border-bottom: #007bff 3px solid;
+    margin-right: 1%;
+    text-align: center;
+}
+.buttonsc {
+    background-color: #007bff;
+    color: white;
+    width: 50%;
+
+}
+
+@media (max-width: 768px) {
+    .list_acc {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 5px;
+
+    }
+
+    .hasinput input {
+        width: 15%;
+    }
 }
