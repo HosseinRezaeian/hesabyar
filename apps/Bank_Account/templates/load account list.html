@@ -1,16 +1,14 @@
- {% load static %}
+{% load static %}
 <div id="listaccountload">
-
     <link rel="stylesheet" href="{% static 'style.css' %}">
-
-
-
     {% for i in acc %}
         <div class="list_acc"><span class="spname">{{ i.name }}</span> <span
                 class="spaccnum">{{ i.accountNumber }}</span><span class="spcash">{{ i.cash }}</span>
         </div>
     {% endfor %}
-    <div id="addccfiled" class="list_acc hasinput"><input id="accname" type="text"><input id="accnum" type="text"><input id="acccash" type="text"></div>
+    <div id="addccfiled" class="list_acc hasinput"><input id="accname" type="text"><input id="accnum" type="text"><input
+            id="acccash" type="text"></div>
+
     <div id="addclick" onclick="addaccfiled()" class="list_acc add_list">
         <span>+</span>
     </div>

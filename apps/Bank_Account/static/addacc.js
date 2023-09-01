@@ -1,10 +1,7 @@
-var divclick;
-var newButton;
-
 
 function allready(){
-            $("#addccfiled").hide();
 
+    $("#addccfiled").hide();
 
     $(".spaccnum").each(function () {
         var spanElement = $(this);
@@ -33,41 +30,31 @@ function allready(){
 
 
 $(document).ready(function () {
-    divclick = document.querySelector("#addclick");
 allready();
 });
 
 
 function addaccfiled() {
-    console.log(Url);
-
-    newButton = document.createElement("div");
-    newButton.className = 'list_acc add_list';
-
-    newButton.innerHTML = "<button onclick='canceladd()' class='buttonsc'>cancel</button><button onclick='saveclick()'  class='buttonsc'>Add account bank</button>";
-    divclick.parentNode.replaceChild(newButton, divclick);
+    var divclick = $("#addclick");
+    var newButton="<div id='new' class='list_acc add_list'><button onclick='canceladd()' class='buttonsc'>cancel</button><button id='savebtn' onclick='save_click()' class='buttonsc'>Add account bank</button></div>";
+    divclick.replaceWith(newButton);
     $("#addccfiled").toggle();
 }
 
 function canceladd() {
-    newButton.parentNode.replaceChild(divclick, newButton);
+    var divclick = $("#new");
+     var oldButton='<div id="addclick" onclick="addaccfiled()" class="list_acc add_list"><span>+</span></div>';
+    divclick.replaceWith(oldButton);
     $("#addccfiled input").val('');
     $("#addccfiled").hide();
 }
 
-
-var jq = jQuery.noConflict();
-
-function saveclick() {
-    console.log('hey', Url);
-    newButton.parentNode.replaceChild(divclick, newButton);
+function save_click() {
     var name = $("#accname").val();
     var number = $("#accnum").val();
     var cash = $("#acccash").val();
-
     $("#addccfiled input").val('');
     $("#addccfiled").hide();
-
     $.get(Url, {
         name: name,
         number: number.replace(/-/g, ""),
@@ -75,7 +62,6 @@ function saveclick() {
     }).then(res=>{
         $('#listaccountload').html(res);
         allready();
-
     });
 }
 
