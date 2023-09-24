@@ -1,44 +1,62 @@
 
-* {
+*{
     margin: 0;
     padding: 0;
 }
-
-body {
+body{
     height: calc(100vh - 3%);
     background-color: white;
 }
-
-.link {
+.link{
     display: flex;
+
     padding: 0px 100px;
     gap: 2rem;
 }
-
-li {
+li{
     list-style: none;
+
+
 }
-.username{
-    padding: 10px;
-}
-.subhome {
-    display: none;
+.subhome{
+    width: 100px;
+    background-color: aqua;
+    padding: 50px;
+    position: absolute;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
 }
 
-li a {
+
+
+
+/*.navitem:hover .subhome{*/
+/*    opacity: 1;*/
+/*    visibility: visible;*/
+/*}*/
+
+
+
+li a{
     text-decoration: none;
     color: #1a1919;
     font-size: 1rem;
 }
 
+/*.link li:hover{*/
 
-.toggle-btn {
+    /*background-color: aqua;*/
+/*}*/
+/*header{*/
+/*    position: relative;*/
+/*}*/
+.toggle-btn{
     font-size: 2rem;
     display: none;
     padding-right: 1%;
 }
-
-.navbar {
+.navbar{
     width: 99.5%;
     height: 60px;
 
@@ -50,17 +68,14 @@ li a {
     justify-content: space-between;
 
 }
-
-.body {
+.body{
     height: 88%;
-    background-color: #b9b8b8;
-    padding: 1% 1%;
+    background-color: #b9b8b8;padding: 1% 1%;
     width: 97.5%;
     margin: 0.9% auto;
     border-radius: 5px;
     overflow-y: auto;
 }
-
 .body::-webkit-scrollbar {
     width: 10px; /* Set the width of the scrollbar */
 }
@@ -74,43 +89,69 @@ li a {
 .body::-webkit-scrollbar-thumb:hover {
     background-color: #555;
     width: 100px;
-    border-radius: 10px; /* Color change on hover */
+    border-radius: 10px;/* Color change on hover */
 }
 
 
 
+
+.dropdownmenu{
+    position: absolute;
+    right: 2rem;
+    gap: 2rem;
+    top:60px;
+    display: none;
+    overflow: hidden;
+    background-color: rgba(119, 114, 114, 0.5);
+    border-radius: 5px;
+    /*backdrop-filter: blur(15px);*/
+
+}
+.dropdownmenu li{
+    padding: 1rem;
+    text-align: center;
+}
+.dropdownmenu a{
+    text-decoration: none;
+    color: #1a1919;
+    font-size: 1rem;
+
+}
 
 
 @media (max-width: 992px) {
-    .link.open {
+    .link.open{
         display: block;
     }
-
-    .link {
-        display: none;
+    .link{
         position: absolute;
         right: 2rem;
-        gap: 2rem;
-        top: 60px;
         display: none;
+        gap: 2rem;
+        top:60px;
         overflow: hidden;
-        background-color: rgba(119, 114, 114, 0.9);
+        background-color: rgba(119, 114, 114, 0.5);
         border-radius: 5px;
         width: 30%;
     }
-    
-    .link li {
+
+
+    .link li{
         padding: 1rem;
         text-align: center;
     }
-
-    .toggle-btn {
+    .toggle-btn{
         display: block;
     }
+    .dropdownmenu{
+
+        width: 30%;
+    }
+
 }
 
 @media (max-width: 576px) {
-    .link {
+    .link{
         left: 2rem;
         width: unset;
     }

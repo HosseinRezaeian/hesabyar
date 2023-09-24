@@ -3,21 +3,27 @@
 
 
 {% block content %}
+
+
+
     <div id="listaccountload">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     {% for i in acc %}
-        <div class="list_acc"><span class="spname">{{ i.name }}</span> <span
-                class="spaccnum">{{ i.accountNumber }}</span><span class="spcash">{{ i.cash }}</span>
+
+        <div  class="list_acc center"><img onclick="delete_account('{{ i.id }}')" class="trush" src="../static/images/trash-solid.svg"><span class="spname center">{{ i.name }}</span> <span
+                class="spaccnum center">{{ i.accountNumber }}</span><span class="spcash center">{{ i.cash }}</span>
         </div>
     {% endfor %}
-    <div id="addccfiled" class="list_acc hasinput"><input id="accname" type="text"><input id="accnum" type="text"><input id="acccash" type="text"></div>
-    <div id="addclick" onclick="addaccfiled()" class="list_acc add_list">
+    <div class="list_acc"><span style="width: 100%" class="center">{{ total_amount }}</span></div>
+    <div id="addccfiled" class="list_acc hasinput"><input class="center" id="accname" type="text"><input class="center" id="accnum" type="text"><input class="center" id="acccash" type="text"></div>
+    <div id="addclick" onclick="addaccfiled()" class="list_acc add_list center">
         <span>+</span>
     </div>
 </div>
 <script src="{% static 'addacc.js' %}"></script>
     <script>
     var Url='{% url "add_in_account_bank" %}';
+    var Urldelte='{% url "delete_account" %}';
     </script>
 
 {% endblock %}

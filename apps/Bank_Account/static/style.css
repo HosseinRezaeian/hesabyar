@@ -3,65 +3,110 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: #007bff 2px solid;
+    border: white 2px solid;
     border-radius: 5px;
     margin-bottom: 5px;
 
 }
+.list_public{
 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: white 2px solid;
+
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
 .add_list {
-    background-color: #007bff;
-    color: white;
+    background-color: white;
+    color: black;
     justify-content: center;
 }
-.spname{
+
+.spname {
     width: 20%;
     margin-left: 1%;
     text-align: center;
 }
 
 
-.spcash{
+.spcash {
     width: 20%;
     margin-right: 1%;
-    text-align: center;
 }
 
-.spaccnum{
+.spaccnum {
     width: 55%;
-    text-align: center;
 }
 
-#accname{
+#accname {
     width: 20%;
     border: none;
-    outline:none;
-    border-bottom: #007bff 3px solid;
+    outline: none;
+    border-bottom: black 3px solid;
     margin-left: 1%;
-    text-align: center;
+    background-color: #b9b8b8;
 }
-#accnum{
+
+#accnum {
     width: 55%;
-        border: none;
-    outline:none;
-    border-bottom: #007bff 3px solid;
-    text-align: center;
-
-
+    border: none;
+    outline: none;
+    background-color: #b9b8b8;
+    border-bottom: black 3px solid;
 }
-#acccash{
+
+#acccash {
     width: 20%;
-        border: none;
-    outline:none;
-    border-bottom: #007bff 3px solid;
+    border: none;
+    outline: none;
+    background-color: #b9b8b8;
+    border-bottom: black 3px solid;
     margin-right: 1%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.buttonsc:hover {
+    box-shadow: 0px 2px black;
+    background-color: rgba(119, 114, 114, 0.5);
+    color: white;
+}
+
+.add_list:hover {
+    box-shadow: 0px 2px black;
+    border-bottom: 1px;
+    background-color: rgba(119, 114, 114, 0.5);
+    color: white;
+    cursor: pointer;
+}
+
+.center {
     text-align: center;
 }
-.buttonsc {
-    background-color: #007bff;
-    color: white;
-    width: 50%;
 
+.buttonsc {
+    background-color: white;
+    color: black;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+}
+
+.trush {
+    width: 0.8%;
+    cursor: pointer;
+    margin-left: 1%
 }
 
 @media (max-width: 768px) {
@@ -69,9 +114,11 @@
         width: 100%;
         margin: 0 auto;
         margin-bottom: 5px;
-
     }
+    .trush {
+    width: 2%;
 
+}
     .hasinput input {
         width: 15%;
     }

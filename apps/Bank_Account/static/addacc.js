@@ -1,5 +1,4 @@
-
-function allready(){
+function allready() {
 
     $("#addccfiled").hide();
 
@@ -26,44 +25,69 @@ function allready(){
 }
 
 
-
-
-
 $(document).ready(function () {
-allready();
+    allready();
 });
 
 
 function addaccfiled() {
     var divclick = $("#addclick");
-    var newButton="<div id='new' class='list_acc add_list'><button onclick='canceladd()' class='buttonsc'>cancel</button><button id='savebtn' onclick='save_click()' class='buttonsc'>Add account bank</button></div>";
+    var newButton = "<div id='new' class='list_acc add_list'><div id='canselbtn' onclick='canceladd()' class='buttonsc'>cancel</div><div id='savebtn' onclick='save_click()' class='buttonsc'>Add account bank</div></div>";
     divclick.replaceWith(newButton);
     $("#addccfiled").toggle();
 }
 
 function canceladd() {
     var divclick = $("#new");
-     var oldButton='<div id="addclick" onclick="addaccfiled()" class="list_acc add_list"><span>+</span></div>';
+    var oldButton = '<div id="addclick" onclick="addaccfiled()" class="list_acc add_list"><span>+</span></div>';
     divclick.replaceWith(oldButton);
     $("#addccfiled input").val('');
+    $("#addccfiled input").css("background-color", '#b9b8b8');
+    $("#addccfiled input").css("border-bottom-color", 'black');
     $("#addccfiled").hide();
 }
 
 function save_click() {
-    var name = $("#accname").val();
-    var number = $("#accnum").val();
-    var cash = $("#acccash").val();
-    $("#addccfiled input").val('');
-    $("#addccfiled").hide();
-    $.get(Url, {
-        name: name,
-        number: number.replace(/-/g, ""),
-        cash: cash,
-    }).then(res=>{
-        $('#listaccountload').html(res);
-        allready();
-    });
+    var name = $("#accname");
+    var number = $("#accnum");
+    var cash = $("#acccash");
+
+
+
+    if (name.val() != '' && number.val().length == 19 && cash.val() != '') {
+        name = name.val();
+        number = number.val();
+        cash = cash.val();
+        $("#addccfiled input").val('');
+        $("#addccfiled").hide();
+        $.get(Url, {
+            name: name,
+            number: number.replace(/-/g, ""),
+            cash: cash,
+        }).then(res => {
+            $('#listaccountload').html(res);
+            allready();
+        });
+    } else {
+        if (name.val() == '') {name.css("border-bottom-color", "red");} else {name.css("border-bottom-color", 'black');}
+        if (cash.val() == '') {cash.css("border-bottom-color", "red");} else {cash.css("border-bottom-color", 'black');}
+        if (number.val() == '' || number.val().length != 19) {number.css("border-bottom-color", "red");} else {number.css("border-bottom-color", 'black');}
+            }
+
 }
 
+function delete_account(id) {
 
+    console.log("delete",id);
+    if (id) {
+        $.get(Urldelte, {
+            idacc: id,
+
+        }).then(res => {
+            $('#listaccountload').html(res);
+            allready();
+        });
+    }
+
+}
 

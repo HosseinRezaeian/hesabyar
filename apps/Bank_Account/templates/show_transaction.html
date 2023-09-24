@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'styletransaction.css' %}">
+    <div id="listaccountload">
+
+
+        <div class="list_public center">
+            <span class="center">date time</span>
+            <span class="center">  account name</span>
+            <span class="center">remaining</span>
+            <span class="center">amount</span>
+        </div>
+        {% for act in transactions %}
+            <div class="list_public center {{ act.type }}">
+
+
+                <span class="center">{{ act.datetime|date:"Y-m-d H:i" }}</span>
+                <span class="center">  {{ act.account.name }}</span>
+                <span class="center">{{ act.remaining }}</span>
+                <span class="center">{{ act.amount }}
+                    {% if act.type == 'debit' %}
+                        -
+                    {% elif act.type == 'credit' %}
+                        +
+                    {% endif %}
+            </span>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

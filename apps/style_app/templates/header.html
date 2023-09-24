@@ -1,43 +1,78 @@
 {% load static %}
 {% load render_partial %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customized Responsive Menu</title>
+<html>
+<header>
     <script src="{% static 'code.jquery.com_jquery-3.6.0.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'maxcdn.bootstrapcdn.com_bootstrap_4.5.2_css_bootstrap.min.css' %}">
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">#}
-    <link rel="stylesheet" href="{% static 'header.css' %}">
-</head>
+    <!--    <meta name="viewport" content="width=device-with">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="{% static 'header.css' %}" rel="stylesheet"/>
+
+
+</header>
 <body>
-<nav class="navbar navbar-expand-md navbar-custom fixed-top">
-    {% if user.is_authenticated %}
-        <div id="username">{{ user.username }}</div>
-    {% endif %}
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">
-        <i class="fas fa-bars"></i> <!-- Font Awesome 3-line icon -->
-      </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            {% for nav in navBar %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url  nav.link %}">{{ nav.name }} <span class="sr-only">(current)</span></a>
-                </li>
-            {% endfor %}
+<div class="navbar">
 
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </li>
-            {% endif %}
-
-
-        </ul>
+    <div class="username">
+        {% if user.is_authenticated %}
+            <div id="username">{{ user.username }}</div>
+        {% endif %}
     </div>
-</nav>
+    <ul class="link">
+        {% for nav in navBar %}
+            <li class="navitem">
+                <a href="{% url  nav.link %}">{{ nav.name }}</a>
+            </li>
+        {% endfor %}
+        {% if user.is_authenticated %}
+            <li class="navitem">
+                <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+        {% endif %}
+    </ul>
+    <div class="toggle-btn"><img class="btn-img" style="width: 25px;" alt="bars" src="../static/images/bars-solid.svg"></div>
+</div>
+
+
+{#<ul class="dropdownmenu">#}
+{#        {% for nav in navBar %}#}
+{#            <li class="navitem">#}
+{#                <a href="{% url  nav.link %}">{{ nav.name }}</a>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{##}
+{#        {% if user.is_authenticated %}#}
+{#            <li class="navitem">#}
+{#                <a  href="{% url 'logout' %}">Logout</a>#}
+{#                {% else %}#}
+{#                <a href="{% url 'login' %}">Login</a>#}
+{#            </li>#}
+{#        {% endif %}#}
+{##}
+{#</ul>#}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const togglebtn = document.querySelector('.toggle-btn');
+        const toggleicon = $('.toggle-btn img');
+        const dropdownmenu = document.querySelector('.link');
+
+
+        togglebtn.onclick = function () {
+            dropdownmenu.classList.toggle('open');
+            const isopen = dropdownmenu.classList.contains('open');
+            {#toggleicon.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";#}
+            if(isopen){
+
+                toggleicon.attr("src", "../static/images/xmark-solid.svg");
+            }else {
+               toggleicon.attr("src", "../static/images/bars-solid.svg");
+            }
+        }
+    });
+
+</script>

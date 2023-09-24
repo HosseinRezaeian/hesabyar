@@ -1,14 +1,38 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.template.loader import render_to_string
 from django.http import JsonResponse
-from .models import Bank_Account
+from .models import Bank_Account, Accounting_Document
+from django.views.generic import View,TemplateView
+
+
+class Transaction(TemplateView):
+    template_name = 'show_transaction.html'
+
+    def get_context_data(self, *args,**kwargs):
+        context=super(Transaction,self).get_context_data(*args,**kwargs)
+        accs = Bank_Account.objects.filter(user=self.request.user)
+        transact = Accounting_Document.objects.filter(account__in=accs)
+        context['transactions']=transact
+        return context
+
+
+
+
+
+
+    # def get(self, request):
+    #     if request.user.is_authenticated:
+    #         accs = Bank_Account.objects.filter(user=request.user)
+    #         transact = Accounting_Document.objects.filter(account__in=accs)
+    #     return render(request, 'show_transaction.html', {'transactions': transact})
 
 
 # Create your views here.
 def account_show(request):
     user = request.user  # Get the logged-in user
     accs = Bank_Account.objects.filter(user=user)
-    return render(request, 'show account.html', {'acc': accs})
+    total_amount = sum(account.cash for account in accs)
+    return render(request, 'show account.html', {'acc': accs, 'total_amount': total_amount})
 
 
 def add_in_account_bank(request):
@@ -22,9 +46,21 @@ def add_in_account_bank(request):
             add = Bank_Account(accountNumber=number, cash=int(cash), name=name, user=request.user)
             add.save()
     accs = Bank_Account.objects.filter(user=request.user)
+    total_amount = sum(account.cash for account in accs)
 
     # data = {
     #     'user': 'user',
     #     'html': html
     # }
-    return render(request, 'load account list.html', {'acc': accs})
+    return render(request, 'load account list.html', {'acc': accs, 'total_amount': total_amount})
+
+
+def delete_account(request):
+    if request.user.is_authenticated:
+        print('delete', request.GET.get('idacc'))
+        obj = get_object_or_404(Bank_Account, id=request.GET.get('idacc'))
+        obj.delete()
+        accs = Bank_Account.objects.filter(user=request.user)
+        total_amount = sum(account.cash for account in accs)
+
+    return render(request, 'load account list.html', {'acc': accs, 'total_amount': total_amount})

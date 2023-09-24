@@ -1,0 +1,123 @@
+<html>
+<header>
+<!--    <meta name="viewport" content="width=device-with">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="styleorg.css" rel="stylesheet"/>
+
+
+</header>
+<body>
+<div class="navbar">
+
+    <div class="username">hossain</div>
+    <ul class="link">
+        <li class="navitem hassubmenu" ><a href="#">Home</a>
+
+<!--            <ul class="subhome">-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--                <li>hi</li>-->
+<!--            </ul>-->
+
+        </li>
+        <li class="navitem"><a href="#news">News<i class="fa-solid fa-caret-down"></i></a>
+
+
+            <ul class="subhome">
+                <li>hi</li>
+                <li>hi</li>
+                <li>hi</li>
+                <li>hi</li>
+                <li>hi</li>
+                <li>hi</li>
+                <li>hi</li>
+                <li>hi</li>
+            </ul>
+
+
+        </li>
+        <li class="navitem"><a href="#contact">Contact</a></li>
+
+    </ul>
+    <div class="toggle-btn"><i class="fa-solid fa-bars"></i></div>
+</div>
+
+
+<!--<ul class="dropdownmenu">-->
+<!--    <li class="navitem"><a href="#home">Home</a>-->
+
+<!--    </li>-->
+<!--    <li class="navitem"><a href="#news">News</a></li>-->
+<!--    <li class="navitem"><a href="#contact">Contact</a></li>-->
+
+<!--</ul>-->
+
+<script>
+    const togglebtn = document.querySelector('.toggle-btn');
+    const toggleicon = document.querySelector('.toggle-btn i');
+    const dropdownmenu = document.querySelector('.link');
+    const submenu = document.querySelector('.hassubmenu');
+    const caret = document.querySelector('.fa-caret-down');
+
+    submenu.onclick = function () {
+        console.log('submenu',submenu.id);
+    }
+    togglebtn.onclick = function () {
+        dropdownmenu.classList.toggle('open');
+        const isopen = dropdownmenu.classList.contains('open');
+        toggleicon.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+
+    }
+
+
+    caret.onclick=function() {
+        var down=caret.closest('li');
+
+            console.log('hoim',down.find('.subhome'));
+        // caret.closest('li').find('.subhome').css({
+        //         'opacity': '1',
+        //         'visibility': 'visible'
+        //     });
+        // $(this).toggleClass('active'); // Toggle a class for styling purposes (optional)
+        // if ($(this.li).css('opacity') == '0') {
+        //     $(this).css({
+        //         'opacity': '1',
+        //         'visibility': 'visible'
+        //     });
+        // } else {
+        //     $(this).css({
+        //         'opacity': '0',
+        //         'visibility': 'hidden'
+        //     });
+        // }
+    }
+
+
+
+
+</script>
+<div class="body">
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+<h1>hi</h1>
+
+</div>
+
+
+</body>
+
+
+</html>
