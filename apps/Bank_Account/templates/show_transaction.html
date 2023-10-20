@@ -3,7 +3,20 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'styletransaction.css' %}">
+    <link rel="stylesheet" href="{% static 'sub_menu.css' %}">
     <div id="listaccountload">
+
+        <div class="sub_navbar">
+
+
+            <ul class="sub_link">
+                <li>
+                    <a href="{% url 'formtransaction' %}">Add transaction</a>
+                </li>
+
+            </ul>
+
+        </div>
 
 
         <div class="list_public center">

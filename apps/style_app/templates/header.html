@@ -34,7 +34,7 @@
             </li>
         {% endif %}
     </ul>
-    <div class="toggle-btn"><img class="btn-img" style="width: 25px;" alt="bars" src="../static/images/bars-solid.svg"></div>
+    <div class="toggle-btn"><img class="btn-img" style="width: 25px;" alt="bars" src="{% static 'images/bars-solid.svg' %}"></div>
 </div>
 
 
@@ -68,9 +68,9 @@
             {#toggleicon.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";#}
             if(isopen){
 
-                toggleicon.attr("src", "../static/images/xmark-solid.svg");
+                toggleicon.attr("src", "{% static 'images/xmark-solid.svg' %}");
             }else {
-               toggleicon.attr("src", "../static/images/bars-solid.svg");
+               toggleicon.attr("src", "{% static 'images/bars-solid.svg' %}");
             }
         }
     });
