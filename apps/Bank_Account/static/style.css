@@ -6,19 +6,17 @@
     border: white 2px solid;
     border-radius: 5px;
     margin-bottom: 5px;
-
 }
-.list_public{
 
-    width: 100%;
+
+.flex_container{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    border: white 2px solid;
+    justify-content: space-between;
 
-    border-radius: 5px;
-    margin-bottom: 5px;
 }
+
+
 .add_list {
     background-color: white;
     color: black;
