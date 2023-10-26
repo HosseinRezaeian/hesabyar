@@ -4,9 +4,10 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'sub_menu.css' %}">
     <link rel="stylesheet" href="{% static 'styletransaction.css' %}">
+    <script src="{% static 'code.jquery.com_jquery-3.6.0.min.js' %}"></script>
 
     <div class="flex_container" id="listaccountload">
-        <div class="sub_navbar">
+        <div class="sub_navbar" id="sub_navbar">
             <ul class="sub_link">
                 <li>
                     <a href="{% url 'formtransaction' %}">Add transaction</a>
@@ -16,7 +17,7 @@
 
         </div>
         <div class="open_sub">
-            <img class="plus"  src="../../static/images/plus-solid.svg">
+            <img class="plus" src="../../static/images/plus-solid.svg">
         </div>
         <div class="body_submenu">
             <div class="list_public center">
@@ -43,5 +44,30 @@
 
             {% endfor %}
         </div>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const togglebtn = $('.open_sub');
+                const dropleftmenu = $('#sub_navbar');
+
+
+                togglebtn.on("click", function() {
+                    {#dropdownmenu.classList.toggle('open');#}
+                    var classList = dropleftmenu.attr("class");
+                    if(classList=="sub_navbar"){
+                        dropleftmenu.removeClass("sub_navbar");
+                        dropleftmenu.addClass("sub_navbar_opener");
+
+                    }
+                    else if (classList=="sub_navbar_opener"){
+                        dropleftmenu.removeClass("sub_navbar_opener");
+                        dropleftmenu.addClass("sub_navbar");
+                    }
+
+                });
+            });
+
+        </script>
     </div>
 {% endblock %}
